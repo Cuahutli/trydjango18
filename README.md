@@ -1,4 +1,4 @@
-# Proyecto Try Django 1.9
+# Proyecto Try Django 1.8
 
 ### Para usar este proyecto, seguimos los siguientes pasos:
 
