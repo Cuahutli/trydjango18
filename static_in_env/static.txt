@@ -1,0 +1,1 @@
+Esta carpeta es la de producción con los archivos estáticos

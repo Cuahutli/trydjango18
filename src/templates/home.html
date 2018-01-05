@@ -1,0 +1,88 @@
+		
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{%block head_title %} Bienvenido {% endblock %}
+<style>
+	{% block style %}
+
+	{% endblock%}	
+</style>
+
+{% block jumbotron %}
+<!-- Main component for a primary marketing message or call to action -->
+<div class="jumbotron">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+				<h1>Try Django 1.8</h1>
+				<p>Probando Django 1.8 </p>
+				<p>To see the difference between static and fixed top navbars, just scroll.</p>
+				<p>
+					<a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">Join Us &raquo;</a>
+				</p>
+			</div>
+			<div class="col-sm-6">
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/8lp20JFiB4s" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+{% block content %}
+{% if request.user.is_authenticated %}
+	<h1>estás logueado</h1>
+	{% if queryset %}
+		<h2>Bienvenido Staff</h2>
+		<h4>{{ es_grupo }}</h4>
+		<table class="table">
+		{% for q in queryset %}
+			<tr>
+				<td>{{ forloop.counter }}</td>
+				<td>
+					{{ q.fullname }}
+				</td>
+				<td>
+					 {{ q.email }}
+				</td>
+				<td>
+					{{ q.timestamp|timesince}}
+				</td>
+			</tr>
+		{% endfor %}
+
+		</table>
+	{% endif %}
+{% else%}
+	<div class="row">
+	<div class="col-sm-3">
+		<p class="lead text-align-center">Proyecto 1</p>
+		<img src="{% static 'img/img1.png' %}" alt="" class="img-responsive">
+	</div>
+	<div class="col-sm-3">
+		<p class="lead text-align-center">Creado por las estrellas</p>
+		<img src="{% static 'img/img2.png' %}" alt="" class="img-responsive">
+
+	</div>
+	<div class="col-sm-3">
+		<p class="lead text-align-center">Te pelaste gallo?
+			<span class="fa-stack fa-lg fa-5x">
+				<i style="color:#888" class="fa fa-circle-o-notch fa-stack-2x"></i>
+				<i style="color:#f2fa2a" class="fa fa-home fa-stack-1x"></i>
+			</span> 
+		</p>	
+	</div>	
+	<div class="col-sm-3 pull-right">
+		<h3 class="text-align-center">{{ title }} </h3>
+		<form method='POST' action=''>
+			{% csrf_token%}	
+			{{ form|crispy }}
+			<input class= "btn btn-primary" type="submit" value="SignUp">
+		</form>
+	</div>	
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,52 @@
+body{
+	min-height: 1000px;
+}
+.text-align-center{
+	text-align: center;
+	color:red;
+}
+
+.jumbotron{
+	background-color: #00695c;
+	color:white;
+}
+
+li>a>.fa{
+	/*font-size: 1.6em;*/
+	padding-right: 5px;
+}
+
+.navbar{
+	padding-top: 5px;
+	background-color: #00afc4;
+	color:#fff;
+}
+
+.navbar-default .navbar-nav>li>a{
+	color:#FFF;
+}
+
+.navbar-default .navbar-nav>li>a:hover{
+	color:#f8f;
+	border-bottom: 1px solid red;
+}
+
+
+
+.navbar-default .navbar-brand>img{
+	width: 120px;
+	height: 40px;
+}
+.navbar-brand{
+	padding: 0;
+}
+
+
+.navbar-default .navbar-brand:hover{
+	color:blue;
+	border-bottom: 1px solid red;
+}
+
+.margen{
+	margin-left: 10px;
+}
